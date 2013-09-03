@@ -1,6 +1,8 @@
 Jubatusを動かしてみる。
 ==========================
 
+::
+
     ubuntu@[manager]:~$ history 
         1  sudo vi /etc/apt/sources.list
         2  sudo apt-get update
@@ -20,13 +22,15 @@ Jubatusを動かしてみる。
 
 最初に、manager内で、MessageQueueを起動しておきます。
 
+::
+
     ubuntu@[manager]:~$ sudo sh init_mq.sh 
 
 これは、最初の一回だけで一度起動すれば、マシンを再起動しない限り、ログアウトしても有効です。
 
 managerは、QueueとZookeeperの役割をさせるので、IPアドレス（プライベート）を調べておく。
 
-..
+::
 
     ifconfig
     eth0      Link encap:Ethernet  HWaddr 12:31:43:01:fc:bc  
@@ -67,17 +71,25 @@ managerは、QueueとZookeeperの役割をさせるので、IPアドレス（プ
 
 * shell1
 
+::
+
     ubuntu@[manager]:~$ jubanearest_neighbor -f config.json
 
 * shell2
+
+::
 
     ubuntu@[manager]:~$ python source.py
 
 * shell3
 
+::
+
     ubuntu@[manager]:~$ python jubatus_update.py 127.0.0.1
 
 * shell4
+
+::
 
     ubuntu@[manager]:~$ python jubatus_analyze.py 0
     ubuntu@[manager]:~$ python jubatus_analyze.py 1
@@ -88,6 +100,8 @@ managerは、QueueとZookeeperの役割をさせるので、IPアドレス（プ
 これは、学習している途中なので、結果はタイミングによって変わります。
 なお、もし"WARNING:root:Connect error on fd 7: [Errno 99] Cannot assign requested addressc msgpackrpc.error.TransportError: Retry connection over the limit"のようなエラーが出る場合は、
 
+::
+
     sudo /sbin/sysctl -w net.ipv4.tcp_tw_recycle=1
 
 を設定しておいてください。一気に多くのクエリーが発行された時に起こります。
@@ -97,12 +111,16 @@ managerは、QueueとZookeeperの役割をさせるので、IPアドレス（プ
 jubatusは、サーバ同士、およびプロキシプロセス同士の発見、死活監視をzookeeperを介して行っています。
 本来、zookeeperをSPoFにしないように3台以上で構成しますが、今回は簡易的に行っています。
 
+::
+
     ubuntu@[manager]:~$ sudo /usr/share/zookeeper/bin/zkServer.sh start
 
 これまで起動時に指定していたconfigファイルをzookeeperに登録します。
 
 "sensor_nn"というのが、このタスクの名前です。このタスクは、zookeeper上に一意である必要があります。
 jubatusは、この名前が同じもの同士、MIXを行おうとします。
+
+::
 
     ubuntu@[manager]:~$ jubaconfig -c write -f config.json -t nearest_neighbor -n sensor_nn -z localhost:2181
     ubuntu@[manager]:~$ jubaconfig -c list -z localhost:2181
@@ -111,17 +129,24 @@ jubatusは、この名前が同じもの同士、MIXを行おうとします。
 
 .. image:: http://gyazo.com/fb501e55ef9b9dd8e8d84297d5c2026b.png
 
+::
+
     ubuntu@[manager]:~$ python source.py
 
     ubuntu@[s1]:~$ jubanearest_neighbor --zookeeper 10.X.X.X:2181 -n sensor_nn
     ubuntu@[s2]:~$ jubanearest_neighbor --zookeeper 10.X.X.X:2181 -n sensor_nn
 
 これで、サーバ二台待ち受けている状態になっているはずです。正しくサーバが待ち受けられているかを確認するために、jubactrlを使ってstatusを確認してみましょう。
+
+::
+
     ubuntu@[manager]:~$ jubactl -z 10.X.X.X:2181 -s jubanearest_neighbor -t nearest_neighbor -c status -n sensor_nn
 
 二台のマシンが登録されているでしょうか？ここで表示されているpricate IPアドレスは、s1,s2のものです。
 jubatusはzookeeperを介して自動的にサーバのIPアドレス、ポートを管理します。利用者はzookeeperの場所を意識するだけでよいようになります。
 この後、keeperを立ち上げます。
+
+::
 
     ubuntu@[c1]:~$ jubanearest_neighbor_keeper --zookeeper 10.X.X.X:2181
     ubuntu@[c2]:~$ jubanearest_neighbor_keeper --zookeeper 10.X.X.X:2181
@@ -130,6 +155,8 @@ jubatusはzookeeperを介して自動的にサーバのIPアドレス、ポー�
     ubuntu@[c2]:~$ python jubatus_update.py 10.X.X.X
 
 ここまでで分散できていることを確認しましょう。
+
+::
 
     ubuntu@[c1]:~$ python jubatus_analyze.py 0
 
@@ -140,9 +167,13 @@ jubanearest_neighbor --zookeeper 10.X.X.X:2181 --name sensor_nn --interval_sec 3
 source.pyは、seedオプションで、乱数の制御が出来ます。また、speedは毎秒最大していされた個数をenqueueします。countで、
 何個投入したら止めるかを指定します。
 
+::
+
     ubuntu@[manager]:~$ python source.py --seed 1 --speed 5 --count 10000
 
 MIXが起きる前と、起きた後で、結果が変わることを確認して下さい。
+
+::
 
     ubuntu@[c1]:~$ python jubatus_analyze.py 0
 
