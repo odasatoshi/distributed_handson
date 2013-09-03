@@ -21,8 +21,7 @@ https://portal.aws.amazon.com/gp/aws/manageYourAccount
 4. 下記のクレームコードを入力し、引き換えをクリックしてください。AWSアカウントに支払いを追加します。 から指定されたコードを入力。
 5. ただしくチャージされていれば、次のようになります。
 
-![payment](https://gist.github.com/odasatoshi/d95e62b070c1a679abd4/raw/e04c026e4a696c3345cda31c820436518bc9ff36/payments.png)
-
+.. image:: https://gist.github.com/odasatoshi/d95e62b070c1a679abd4/raw/e04c026e4a696c3345cda31c820436518bc9ff36/payments.png
 
 EC2 ダッシュボード
 ------------------------
@@ -35,7 +34,8 @@ https://console.aws.amazon.com/ec2/v2/home
 後ろに数字が付いているのは構いませんが、例えば"us-west"などになっていると、
 以下のチュートリアルが実施できないことがあります。
 右上の"あなたの名前"と"Help"の間にある地名が、"Tokyo"になっていれば大丈夫です。
-![dashborad](https://gist.github.com/odasatoshi/d95e62b070c1a679abd4/raw/f03d68723ddcbc49c2d5f98fd1da860fac296d38/dashboard.png)
+
+.. image:: https://gist.github.com/odasatoshi/d95e62b070c1a679abd4/raw/f03d68723ddcbc49c2d5f98fd1da860fac296d38/dashboard.png
 
 Key Pairの作成
 ------------------------
@@ -63,9 +63,13 @@ https://console.aws.amazon.com/ec2/home?region=ap-northeast-1#s=SecurityGroups
 3. Nameに"jubatus_handson", Descriptionに適当な説明を入力して"Yes, Create"ボタンをクリック
 4. 作成したグループを選択し、下部の"Inbound"をクリック
 5. Port Rangeに"22"を追加して、下のボタン、Add Ruleをクリック
-![dashborad](https://gist.github.com/odasatoshi/d95e62b070c1a679abd4/raw/b7cec527ba2d042c00a1f40bbc8c4871b147999a/secgroup.png)
+
+.. image:: https://gist.github.com/odasatoshi/d95e62b070c1a679abd4/raw/b7cec527ba2d042c00a1f40bbc8c4871b147999a/secgroup.png
+
 6. Create a new ruleから、All TCPを選び、Sourceに"jubatus_handson"のGroup ID（下記の例では、sg-6b58146aとなっています。上の表にある自分の環境のGroup IDを参照してください）
-![custom](http://gyazo.com/cd8a71be8fd716fed6e5e900ef17850b.png)
+
+.. image:: http://gyazo.com/cd8a71be8fd716fed6e5e900ef17850b.png
+
 7. さらに下のApply Rule Changeをクリックして、すべての設定を反映させます。
 
 
@@ -94,7 +98,8 @@ https://console.aws.amazon.com/ec2/home?region=ap-northeast-1#s=Instances
 ダッシュボードに戻ってInstancesを見ると、5台のマシンが起動していることがわかると思います。
 便宜上、"MANAGER", "C1", "C2", "S1", "S2"と名づけます。NAMEにある鉛筆のアイコンをクリックして、名前をつけましょう。
 名前が付けられたら、以下のようになります。
-![servers](http://gyazo.com/25770bc23349e386345eb340a109c543.png)
+
+.. image:: http://gyazo.com/25770bc23349e386345eb340a109c543.png
 
 この後、ハンズオンで利用するため、managerのプライベートIPアドレスを調べておきます。
 managerの行をクリックすると、その情報が下部に表示されます。

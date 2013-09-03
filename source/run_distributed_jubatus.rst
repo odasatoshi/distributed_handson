@@ -43,7 +43,8 @@ managerは、QueueとZookeeperの役割をさせるので、IPアドレス（プ
 サーバのIP（zookeeper, rabbitmq）が必要なのは、このアドレスだけだと思います。
 
 まずは、簡単に一台構成で挙動を確認しましょう。
-![single](http://gyazo.com/93366c0b36033e968d7ed0c35107d575.png)
+
+.. image:: http://gyazo.com/93366c0b36033e968d7ed0c35107d575.png
 
 これから、近傍探索のタスクを題材にハンズオンを行います。センサーからストリーム的にデータが入ってくることを想定してください。これらのデータを一旦Queueで受けながら、逐次データを学習させます。任意の時点で、ある点の近傍探索を行うことが出来、その時点における近傍にある点を見つけることがこのタスクの目的です。
 
@@ -107,7 +108,8 @@ jubatusは、この名前が同じもの同士、MIXを行おうとします。
     ubuntu@[manager]:~$ jubaconfig -c list -z localhost:2181
 
 最終的には以下のプロセス構成になります。
-![dist](http://gyazo.com/fb501e55ef9b9dd8e8d84297d5c2026b.png)
+
+.. image:: http://gyazo.com/fb501e55ef9b9dd8e8d84297d5c2026b.png
 
     ubuntu@[manager]:~$ python source.py
 
