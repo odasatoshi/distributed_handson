@@ -17,10 +17,10 @@ Jubatusを動かしてみる。
     
        ubuntu@[manager]:~$ cd jubatus_distributed_handson/
 
-最初に、jubatus_distributed_handsonディレクトリに移動します。
+最初に、 ``jubatus_distributed_handson`` ディレクトリに移動します。
 以後、すべてこのディレクトリ内で作業をします。
 
-最初に、manager内で、MessageQueueを起動しておきます。
+最初に、 ``manager`` 内で、MessageQueueを起動しておきます。
 
 ::
 
@@ -28,7 +28,7 @@ Jubatusを動かしてみる。
 
 これは、最初の一回だけで一度起動すれば、マシンを再起動しない限り、ログアウトしても有効です。
 
-managerは、QueueとZookeeperの役割をさせるので、IPアドレス（プライベート）を調べておく。
+``manager`` は、QueueとZookeeperの役割をさせるので、IPアドレス（プライベート）を調べておく。
 
 ::
 
@@ -117,7 +117,7 @@ jubatusは、サーバ同士、およびプロキシプロセス同士の発見�
 
 これまで起動時に指定していたconfigファイルをzookeeperに登録します。
 
-"sensor_nn"というのが、このタスクの名前です。このタスクは、zookeeper上に一意である必要があります。
+``sensor_nn`` というのが、このタスクの名前です。このタスクは、zookeeper上に一意である必要があります。
 jubatusは、この名前が同じもの同士、MIXを行おうとします。
 
 ::
@@ -142,7 +142,7 @@ jubatusは、この名前が同じもの同士、MIXを行おうとします。
 
     ubuntu@[manager]:~$ jubactl -z 10.X.X.X:2181 -s jubanearest_neighbor -t nearest_neighbor -c status -n sensor_nn
 
-二台のマシンが登録されているでしょうか？ここで表示されているpricate IPアドレスは、s1,s2のものです。
+二台のマシンが登録されているでしょうか？ここで表示されているprivate IPアドレスは、 ``s1`` , ``s2`` のものです。
 jubatusはzookeeperを介して自動的にサーバのIPアドレス、ポートを管理します。利用者はzookeeperの場所を意識するだけでよいようになります。
 この後、keeperを立ち上げます。
 
@@ -162,7 +162,10 @@ jubatusはzookeeperを介して自動的にサーバのIPアドレス、ポー�
 
 jubatusのMIXは、最後にMIXが行われてからinterval_countで指定された回数updateを受けるか、
 interval_secで指定された時間経過するかのどちらかが契機となって始まります。例えば、下記の設定では5分に一度MIXされます。
-jubanearest_neighbor --zookeeper 10.X.X.X:2181 --name sensor_nn --interval_sec 300
+
+::
+
+    jubanearest_neighbor --zookeeper 10.X.X.X:2181 --name sensor_nn --interval_sec 300
 
 source.pyは、seedオプションで、乱数の制御が出来ます。また、speedは毎秒最大していされた個数をenqueueします。countで、
 何個投入したら止めるかを指定します。
