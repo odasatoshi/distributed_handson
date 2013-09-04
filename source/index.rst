@@ -10,7 +10,7 @@
 
 本資料は分散Jubatusハンズオンで利用する、チュートリアル資料です。
 Jubatusの起動から、分散方法、利用方法までを一から説明します。
-なお、想定するJubatusのバージョンは0.4.0です。
+なお、想定するJubatusのバージョンは0.5.0(develop)です。
 別バージョンですと、インターフェースなどが変わっている可能性があるので注意してください。
 
 Contents:
@@ -18,6 +18,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   intro
    ecc
    run_distributed_jubatus
 
