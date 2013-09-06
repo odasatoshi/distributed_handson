@@ -94,7 +94,7 @@ https://console.aws.amazon.com/ec2/home?region=ap-northeast-1#s=Instances
 6. ``Number of Instances:`` に5を入力、 ``Instance Type:`` にM1 Small以上を選択
 7. ``Avalialbity Zone:`` あるいは ``Subnet:`` の設定が、デフォルトでは選択しないことになっているので、いずれかの具体的なネットワーク名を指定してください。
 8. Contiuneを4回クリック
-9. ``Choose from your existing Key Pairs`` で、先ほど作成した、 ``jubatus_handson``を選択、 ``Continue``
+9. ``Choose from your existing Key Pairs`` で、先ほど作成した、 ``jubatus_handson`` を選択、 ``Continue``
 10. ``Choose one or more of your existing Security Groups`` で、先ほど作成した ``jubatus_handson`` を選択、 ``Contiune``
 11. すべて揃えば、 ``Launch`` で起動します。
 
