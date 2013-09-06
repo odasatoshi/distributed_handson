@@ -41,7 +41,7 @@ Key Pairの作成
 ------------------------
 https://console.aws.amazon.com/ec2/home?region=ap-northeast-1#s=KeyPairs
 
-1. ダッシュボードのメニュー  ``NETWORK & SECURITY``  から、 ``Key Pairs`` をクリック
+1. ダッシュボードの左側のメニュー  ``NETWORK & SECURITY``  から、 ``Key Pairs`` をクリック
 2. Create Key Pairボタンをクリック
 3. Key Pair Nameに ``jubatus_handson`` と入力して ``Create`` ボタンをクリック
 4. ``jubatus_handson.pem`` というファイルがダウンロードされます。
@@ -60,7 +60,7 @@ Security Groupsの作成、設定
 -----------------------------
 https://console.aws.amazon.com/ec2/home?region=ap-northeast-1#s=SecurityGroups
 
-1. ダッシュボードのメニュー ``NETWORK & SECURITY`` から、 ``Security Groups`` をクリック
+1. ダッシュボードの左側のメニュー ``NETWORK & SECURITY`` から、 ``Security Groups`` をクリック
 2. Create Security Groupボタンをクリック
 3. ``Name`` に ``jubatus_handson`` , ``Description`` に適当な説明を入力して ``Yes, Create`` ボタンをクリック
 4. 作成したグループを選択し、下部の ``Inbound`` をクリック
@@ -86,7 +86,7 @@ https://console.aws.amazon.com/ec2/home?region=ap-northeast-1#s=Instances
 
 ハンズオン用のAMIから5台の仮想マシンを起動します。
 
-1. ダッシュボードのメニュー ``INSTANCES`` から ``Instances`` をクリック
+1. ダッシュボードの左側のメニュー ``INSTANCES`` から ``Instances`` をクリック
 2. ``Launch Instance`` をクリック
 3. ``Classic Wizard`` を選択、 ``Continue`` をクリック
 4. ``Community AMIs`` を選択、Searchの欄に ``jubatus`` を入力
