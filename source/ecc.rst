@@ -68,7 +68,7 @@ https://console.aws.amazon.com/ec2/home?region=ap-northeast-1#s=SecurityGroups
 
 .. image:: https://gist.github.com/odasatoshi/d95e62b070c1a679abd4/raw/b7cec527ba2d042c00a1f40bbc8c4871b147999a/secgroup.png
 
-6. ``Create a new rule`` から、 ``All TCP`` を選び、 ``Source`` に ``jubatus_handson`` の ``Group ID`` （下記の例では、sg-6b58146aとなっています。上の表にある自分の環境のGroup IDを参照してください）を入力し、``Add Rule``をクリック
+6. ``Create a new rule`` から、 ``All TCP`` を選び、 ``Source`` に ``jubatus_handson`` の ``Group ID`` （下記の例では、sg-6b58146aとなっています。上の表にある自分の環境のGroup IDを参照してください）を入力し、 ``Add Rule`` をクリック
 
 .. image:: http://gyazo.com/cd8a71be8fd716fed6e5e900ef17850b.png
 
