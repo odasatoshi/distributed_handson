@@ -109,3 +109,48 @@ https://console.aws.amazon.com/ec2/home?region=ap-northeast-1#s=Instances
 画面をスクロールさせて、 ``Private IPs:`` と書かれている所を見てください。
 作成した直後の場合、ここが空欄になっている場合がありますが、画面を更新すれば表示されるはずです。
 10.X.X.X もしくは 172.X.X.X のようなIPアドレスが書かれているかと思います。これを別の所にメモしておいてください。
+
+
+managerにssh接続（Windowsの場合）
+--------------------------------------------
+https://console.aws.amazon.com/ec2/home?region=ap-northeast-1#s=Instances
+
+managerにsshで接続します。先ほど調べたプライベートIPアドレスではなく、グローバルIPアドレスを調べて利用します。
+sshクライアントとしてputtyを使用します。puttyではなくCygwin等を用いる場合は、この節でなく、Windows以外の場合の節の説明の通りにしてください。
+puttyではopenssh形式であるjubatus_handson.pemをそのまま扱えないので、puttygenというツールで変換して用います。
+
+1. ダッシュボードの左側のメニュー ``INSTANCES`` から ``Instances`` をクリック（VMを立ち上げる操作の直後なら必要ない）
+2. ``manager`` を右クリック
+3. 表示されたコンテキストメニューの ``Connect`` をクリック
+4. ``Connect with a standalone SSH Client`` をクリックすると、4番目にIPアドレスと例が表示される。（例は使わない。）
+5. puttyのダウンロードページから ``putty.exe`` と ``puttygen.exe`` をダウンロードする。
+6. ``puttygen.exe`` を実行し、 ``File->"Load private key"`` で ``jubatus_handson.pem`` を開く。
+
+.. image:: https://gist.github.com/gwtnb/e5f614edbf58ff9d4ee9/raw/1fc3ceaa7478e584de46cc7143da16b5a25d27a2/puttygen.png
+
+7. ダイアログが開くので ``OK`` をクリックする。
+8. ``Save public key`` をクリックして、変換された秘密鍵ファイル ``jubatus_handson.ppk`` を保存する。
+9. ``puttygen.exe`` を閉じる。
+10. ``putty.exe`` を実行する。
+11. ``Category:`` の ``Session`` をクリックし、 ``Host Name (or IP address)`` に4で調べたグローバルIPアドレスを入力する。
+
+.. image:: https://gist.github.com/gwtnb/e5f614edbf58ff9d4ee9/raw/8c82ca13cc01fbf4e7f9d4ad5e4d338ef2168f16/putty_ip.png
+
+12. ``Category:`` の ``Connection/SSH/Auth`` をクリックし、 ``Private key file for authentication`` にjubatus_handson.ppkを指定する。
+
+.. image:: https://gist.github.com/gwtnb/e5f614edbf58ff9d4ee9/raw/e392c8fbf9ba47f68f2b5bb6275868b2f937a80b/putty_key.png
+
+13. ``Open`` をクリックするとコンソールが開き、ユーザー名を問われるので ``ubuntu`` と打つと接続できる。
+
+
+managerにssh接続（Windows以外の場合）
+-------------------------------------------
+https://console.aws.amazon.com/ec2/home?region=ap-northeast-1#s=Instances
+
+managerにsshで接続します。先ほど調べたプライベートIPアドレスではなく、グローバルIPアドレスを調べて利用します。
+
+1. ダッシュボードの左側のメニュー ``INSTANCES`` から ``Instances`` をクリック（VMを立ち上げる操作の直後なら必要ない）
+2. ``manager`` を右クリック
+3. 表示されたコンテキストメニューの ``Connect`` をクリック
+4. ``Connect with a standalone SSH Client`` をクリックすると、4番目にIPアドレスと例が表示される。（例は使わない。）
+5. ターミナルに ``ssh -i jubatus_handson.pem ubuntu@<4で表示されたグローバルIPアドレス>`` と打つと接続できる。
