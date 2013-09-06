@@ -91,11 +91,12 @@ https://console.aws.amazon.com/ec2/home?region=ap-northeast-1#s=Instances
 3. ``Classic Wizard`` を選択、 ``Continue`` をクリック
 4. ``Community AMIs`` を選択、Searchの欄に ``jubatus`` を入力
 5. Manifestが ``142838215056/jubatus_distributed_handson`` となっているものを ``Select``
-6. ``Number of Instances:`` に5を入力、 ``Instance Type:`` にM1 Small以上を選択、 ``Availability Zone:`` を適当な所に設定
-7. Contiuneを4回クリック
-8. ``Choose from your existing Key Pairs`` で、先ほど作成した、 ``jubatus_handson``を選択、 ``Continue``
-9. ``Choose one or more of your existing Security Groups`` で、先ほど作成した ``jubatus_handson`` を選択、 ``Contiune``
-10. すべて揃えば、 ``Launch`` で起動します。
+6. ``Number of Instances:`` に5を入力、 ``Instance Type:`` にM1 Small以上を選択
+7. ``Avalialbity Zone:`` あるいは ``Subnet:`` の設定が、デフォルトでは選択しないことになっているので、いずれかの具体的なネットワーク名を指定してください。
+8. Contiuneを4回クリック
+9. ``Choose from your existing Key Pairs`` で、先ほど作成した、 ``jubatus_handson``を選択、 ``Continue``
+10. ``Choose one or more of your existing Security Groups`` で、先ほど作成した ``jubatus_handson`` を選択、 ``Contiune``
+11. すべて揃えば、 ``Launch`` で起動します。
 
 ダッシュボードに戻ってInstancesを見ると、5台のマシンが起動していることがわかると思います。
 便宜上、 ``MANAGER`` , ``C1`` , ``C2`` , ``S1`` , ``S2`` と名づけます。NAMEにある鉛筆のアイコンをクリックして、名前をつけましょう。
