@@ -108,3 +108,16 @@ https://console.aws.amazon.com/ec2/home?region=ap-northeast-1#s=Instances
 画面をスクロールさせて、 ``Private IPs:`` と書かれている所を見てください。
 作成した直後の場合、ここが空欄になっている場合がありますが、画面を更新すれば表示されるはずです。
 10.X.X.X もしくは 172.X.X.X のようなIPアドレスが書かれているかと思います。これを別の所にメモしておいてください。
+
+
+managerにssh接続
+-------------------------
+https://console.aws.amazon.com/ec2/home?region=ap-northeast-1#s=Instances
+
+managerにsshで接続します。先ほど調べたプライベートIPアドレスではなく、グローバルIPアドレスを調べて利用します。
+
+1. ダッシュボードの左側のメニュー ``INSTANCES`` から ``Instances`` をクリック（VMを立ち上げる操作の直後なら必要ない）
+2. ``manager`` を右クリック
+3. 表示されたコンテキストメニューの ``Connect`` をクリック
+4. ``Connect with a standalone SSH Client`` をクリックすると、4番目にIPアドレスと例が表示される。（この例はそのままでは使えない。）
+5. Windows 以外の場合、ターミナルに ``ssh -i jubatus_handson.pem ubuntu@<4で表示されたグローバルIPアドレス>`` と打つと接続できる。
