@@ -164,12 +164,12 @@ jubatusは、この名前が同じもの同士、MIXを行おうとします。
 
 二台のマシンが登録されているでしょうか？ここで表示されているprivate IPアドレスは、 ``s1`` , ``s2`` のものです。
 jubatusはzookeeperを介して自動的にサーバのIPアドレス、ポートを管理します。利用者はzookeeperの場所を意識するだけでよいようになります。
-この後、keeperを立ち上げます。
+この後、proxyを立ち上げます。
 
 ::
 
-    ubuntu@[c1]:~$ jubanearest_neighbor_keeper --zookeeper 10.X.X.X:2181
-    ubuntu@[c2]:~$ jubanearest_neighbor_keeper --zookeeper 10.X.X.X:2181
+    ubuntu@[c1]:~$ jubanearest_neighbor_proxy --zookeeper 10.X.X.X:2181
+    ubuntu@[c2]:~$ jubanearest_neighbor_proxy --zookeeper 10.X.X.X:2181
 
     ubuntu@[c1]:~$ python jubatus_update.py 10.X.X.X
     ubuntu@[c2]:~$ python jubatus_update.py 10.X.X.X
