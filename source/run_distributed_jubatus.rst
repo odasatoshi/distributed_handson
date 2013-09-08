@@ -32,7 +32,14 @@ AMI
 初期設定
 -------------
 
-最初に、 ``manager`` 内で、MessageQueueを起動しておきます。
+サンプルに更新があるかもしれません。まずは最新化しましょう。
+
+::
+
+    ubuntu@[manager]:~$ git pull
+
+
+次に、 ``manager`` 内で、MessageQueueを起動しておきます。
 
 ::
 
