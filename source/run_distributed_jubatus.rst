@@ -40,7 +40,7 @@ AMI
 
 これは、最初の一回だけで一度起動すれば、マシンを再起動しない限り、ログアウトしても有効です。
 
-``manager`` は、QueueとZookeeperの役割をさせるので、IPアドレス（プライベート）を調べておく。
+``manager`` は、QueueとZookeeperの役割をさせるので、IPアドレス（プライベート）を調べておきましょう。
 
 ::
 
@@ -55,8 +55,19 @@ AMI
               RX bytes:147791 (147.7 KB)  TX bytes:235389 (235.3 KB)
               Interrupt:27 
 
-上記のうち、このマシンの場合は、10.152.251.74、今後は、10.X.X.Xと表記
-サーバのIP（zookeeper, rabbitmq）が必要なのは、このアドレスだけだと思います。
+上記のうち、このマシンの場合は、10.152.251.74、今後は、10.X.X.Xと表記します。
+サーバのIP（zookeeper, rabbitmq）が必要なのは、このアドレスだけです。
+
+.. raw:: html
+
+    <script language="javascript" type="text/javascript">
+        function OnButtonReplaceClick() {
+            newip = document.getElementById("privateip");
+            document.body.innerHTML=document.body.innerHTML.replace(new RegExp('10.X.X.X', 'g'), newip.value);
+            alert(newip.value);
+        }
+    </script>
+    プライベートIPを入れると置換します: <input id="privateip" type="text" /><input type="button" value="置換" onclick="OnButtonReplaceClick();"/>
 
 一台構成
 ----------------
@@ -163,8 +174,13 @@ jubatusは、この名前が同じもの同士、MIXを行おうとします。
 ::
 
     ubuntu@[manager]:~$ jubactl -z 10.X.X.X:2181 -s jubanearest_neighbor -t nearest_neighbor -c status -n sensor_nn
+    active jubaproxy members:
+    active jubavisor members:
+    active sensor_nn members:
+    10.122.23.69_9199
+    10.122.23.72_9199
 
-二台のマシンが登録されているでしょうか？ここで表示されているprivate IPアドレスは、 ``s1`` , ``s2`` のものです。
+``sensor_nn members`` に二台のマシンが登録されているでしょうか？ここで表示されているprivate IPアドレスは、 ``s1`` , ``s2`` のものです。
 jubatusはzookeeperを介して自動的にサーバのIPアドレス、ポートを管理します。利用者はzookeeperの場所を意識するだけでよいようになります。
 この後、proxyを立ち上げます。
 

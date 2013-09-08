@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Jubatus ハンズオン テキスト'
+project = u'Jubatus 分散ハンズオン テキスト'
 copyright = u'2013, Jubatus Team'
 
 # The version info for the project you're documenting, acts as replacement for
