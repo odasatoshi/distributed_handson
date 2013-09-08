@@ -114,7 +114,7 @@ AMI
 
 ::
 
-    ubuntu@[manager]:~$ python jubatus_update.py 127.0.0.1
+    ubuntu@[manager]:~$ python jubatus_update.py 10.X.X.X
 
 * shell4
 
@@ -154,8 +154,8 @@ jubatusは、この名前が同じもの同士、MIXを行おうとします。
 
 ::
 
-    ubuntu@[manager]:~$ jubaconfig -c write -f config.json -t nearest_neighbor -n sensor_nn -z localhost:2181
-    ubuntu@[manager]:~$ jubaconfig -c list -z localhost:2181
+    ubuntu@[manager]:~$ jubaconfig -c write -f config.json -t nearest_neighbor -n sensor_nn -z 10.X.X.X:2181
+    ubuntu@[manager]:~$ jubaconfig -c list -z 10.X.X.X:2181
 
 最終的には以下のプロセス構成になります。
 
