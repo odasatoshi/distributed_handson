@@ -94,8 +94,9 @@ AMI
 
 - jubatus_update.py 10.X.X.X
 
-  キューserverから、dequeueして、10.X.X.Xのjubanearest_neighborに学習させる。
-
+  10.X.X.Xにあるキューserverから、dequeueして、localhost のjubanearest_neighborに学習させる。
+  jubatus_update.pyからみるとjubanearest_neighborは必ずlocalhostにあるように見える。
+  
 - jubatus_analyze.py [id]
 
   idの近傍を取得する。
