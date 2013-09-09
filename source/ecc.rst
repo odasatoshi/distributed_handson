@@ -90,7 +90,7 @@ https://console.aws.amazon.com/ec2/home?region=ap-northeast-1#s=Instances
 2. ``Launch Instance`` をクリック
 3. ``Classic Wizard`` を選択、 ``Continue`` をクリック
 4. ``Community AMIs`` を選択、Searchの欄に ``jubatus`` を入力
-5. Manifestが ``142838215056/jubatus_distributed_handson`` となっているものを ``Select``
+5. Manifestが ``142838215056/jubatus_handson_develop`` となっているものを ``Select``
 6. ``Number of Instances:`` に5を入力、 ``Instance Type:`` にM1 Small以上を選択
 7. ``Avalialbity Zone:`` あるいは ``Subnet:`` の設定が、デフォルトでは選択しないことになっているので、いずれかの具体的なネットワーク名を指定してください。
 8. Contiuneを4回クリック
